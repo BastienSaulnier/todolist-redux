@@ -1,0 +1,10 @@
+.TodosLists {
+  h2 {
+    margin-bottom: 1rem;
+  }
+  .activeTodosList,
+  .inactiveTodosList {
+    min-height: 3rem;
+    margin-bottom: 3rem;
+  }
+}
