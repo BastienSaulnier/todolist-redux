@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./index.scss";
 
 import { employees } from "../../data/employees";
@@ -7,26 +7,23 @@ import { addTodo } from "../../actions/todos.actions";
 
 export default function AddTdo() {
   const dispatch = useDispatch();
-  const id = useSelector((state) => state.todos.todos.length + 1);
   const [title, setTitle] = useState("");
   const [employee, setEmployee] = useState("");
   const [description, setDescription] = useState("");
 
-  function handleSubmit(event, id, title, employee, description) {
+  function handleSubmit(event, title, employee, description) {
     setTitle("");
     setEmployee("");
     setDescription("");
     event.preventDefault();
-    dispatch(addTodo(id, title, employee, description));
+    dispatch(addTodo(title, employee, description));
   }
 
   return (
     <div className="AddTodo center">
       <form
         id="addTodoForm"
-        onSubmit={(event) =>
-          handleSubmit(event, id, title, employee, description)
-        }
+        onSubmit={(event) => handleSubmit(event, title, employee, description)}
       >
         <div className="formHead">
           <label htmlFor="title">
