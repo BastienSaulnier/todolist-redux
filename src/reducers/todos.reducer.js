@@ -1,19 +1,21 @@
 import * as todosConsts from "../consts/todos.consts";
 
 const initialState = {
+  todoPrimaryKey: 0,
   todos: [],
 };
 
 const todos = (state = initialState, action) => {
   switch (action.type) {
     case todosConsts.ADD_TODO:
-      const { id, title, employee, description, createdAt } = action.payload;
+      const { title, employee, description, createdAt } = action.payload;
       return {
         ...state,
+        todoPrimaryKey: state.todoPrimaryKey + 1,
         todos: [
           ...state.todos,
           {
-            id: id,
+            id: state.todoPrimaryKey + 1,
             title: title,
             employee: JSON.parse(employee),
             description: description,
