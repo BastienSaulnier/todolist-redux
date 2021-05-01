@@ -1,9 +1,8 @@
 import * as todosConsts from "../consts/todos.consts";
 
-export const addTodo = (id, title, employee, description) => ({
+export const addTodo = (title, employee, description) => ({
   type: todosConsts.ADD_TODO,
   payload: {
-    id: id,
     title: title,
     employee: employee,
     description: description,
