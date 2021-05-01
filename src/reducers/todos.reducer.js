@@ -9,13 +9,14 @@ const todos = (state = initialState, action) => {
   switch (action.type) {
     case todosConsts.ADD_TODO:
       const { title, employee, description, createdAt } = action.payload;
+      const id = state.todoPrimaryKey + 1;
       return {
         ...state,
-        todoPrimaryKey: state.todoPrimaryKey + 1,
+        todoPrimaryKey: id,
         todos: [
           ...state.todos,
           {
-            id: state.todoPrimaryKey + 1,
+            id: id,
             title: title,
             employee: JSON.parse(employee),
             description: description,
